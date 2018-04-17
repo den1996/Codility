@@ -1,0 +1,16 @@
+using System.Linq;
+
+public class Solution
+{
+    public static int MissingNumber(int[] values)
+    {
+        var range = Enumerable.Range(1, values.Length + 1).Except(values.ToList());
+        return range.Single();
+    }
+    public static void Main(string[] args)
+    {
+        int[] a = { 2, 3, 1, 5 };
+        var result = MissingNumber(a);
+    }
+
+}
