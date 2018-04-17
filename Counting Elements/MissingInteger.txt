@@ -1,0 +1,27 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Remoting.Messaging;
+
+public class Solution
+{
+    public static int MissingInteger(int [] values)
+    {
+        var list = new HashSet<int>();
+        var count = values.Length;
+        for (int i = 0; i < count; i++)
+        {
+            list.Add(values[i]);
+        }
+        var number = 1;
+        while (list.Contains(number)) number++;
+        return number;
+       
+    }
+    public static void Main(string[] args)
+    {
+        int[] a = { 1,3,6,4,1,2 };
+        var result = MissingInteger(a);
+    }
+
+}
