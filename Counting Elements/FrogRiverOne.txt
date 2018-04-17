@@ -1,0 +1,29 @@
+public class Solution
+{
+    public static int FrogProblem(int x, int[] values)
+    {
+        bool[] rows = new bool[x];
+        var todo = x;
+        for (int i = 0; i < values.Length; i++)
+        {
+            if (!rows[values[i] - 1])
+            {
+                todo--;
+                rows[values[i] - 1] = true;
+            }
+
+            if (todo == 0)
+            {
+                return i;
+            }
+        }
+        return -1;
+      
+    }
+    public static void Main(string[] args)
+    {
+        int[] a = { 9, 3, 9, 3, 9, 7, 9 };
+        var result = FrogProblem(6,a);
+    }
+
+}
