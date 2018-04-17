@@ -1,0 +1,26 @@
+using System;
+public class Solution
+{
+    public static int[] CyclicRotation(int[] values, int K)
+    {
+        if (values.Length == 0) return values;
+        var array = new int[values.Length];
+        var count = K > values.Length ? values.Length - Math.Abs(values.Length - K) % values.Length : values.Length - K;
+
+        int j = 0;
+        for (int i = count; i < values.Length; i++)
+            array[j++] = values[i];
+
+        for (int i = 0; i < count; i++)
+            array[j++] = values[i];
+
+        return array;
+    }
+
+    public static void Main(string[] args)
+    {
+        int[] a = {3,8,9,7,6};
+        var result = CyclicRotation(a, 3);
+    }
+
+}

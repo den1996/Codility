@@ -1,0 +1,36 @@
+using System;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+
+        public static int BinaryGap(int N)
+        {
+            var maxCount = 0;
+            var temp = 0;
+            for (var i = 0; i < 32; i++)
+            {
+                if ((N&(1<<i)) !=0)
+                {
+                    if (temp > maxCount)
+                    {
+                        maxCount = temp;
+                    }
+                    temp = 0;
+                }
+                else
+                {
+                    temp++;
+                }
+            }
+            return maxCount;
+        }
+
+
+        static void Main(string[] args)
+        {
+            var result = BinaryGap(1041);
+        }
+    }
+}
