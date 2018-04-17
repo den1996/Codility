@@ -1,0 +1,17 @@
+using System.Linq;
+
+public class Solution
+{
+    public static int FindUnpair(int[] values)
+    {
+        return values.GroupBy(i => i)
+            .Where(g => g.Count() % 2 == 1)
+            .Select(g => g.Key).Single();
+    }
+    public static void Main(string[] args)
+    {
+        int[] a = { 9, 3, 9, 3, 9, 7, 9 };
+        var result = FindUnpair(a);
+    }
+
+}

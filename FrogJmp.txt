@@ -1,0 +1,14 @@
+using System;
+public class Solution
+{
+    public static int MinimalNumber(int x, int y, int d)
+    {
+        double temp = y - x;
+        return (int)Math.Ceiling(temp / d) ;
+    }
+    public static void Main(string[] args)
+    {
+        MinimalNumber(10, 85, 30);
+    }
+
+}
