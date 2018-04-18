@@ -1,0 +1,40 @@
+public class Solution
+{
+    public static int[] MaxCounter(int N, int[] values)
+    {
+        var length = values.Length;
+        var lastMax = 0;
+        var max = 0;
+        var array = new int[N];
+        for (int i = 0; i < array.Length; i++) array[i] = 0;
+        var n1 = N + 1;
+        int j;
+        for (int i = 0; i < length; i++)
+        {
+            if (values[i] < n1)
+            {
+                j = values[i] - 1;
+                if (array[j] < lastMax) array[j] = lastMax;
+                array[j]++;
+                if (max < array[j]) max = array[j];
+            }
+            else
+            {
+                lastMax = max;
+            }
+        }
+
+        for (int i = 0; i < N; i++)
+        {
+            if (array[i] < lastMax) array[i] = lastMax;
+        }
+
+        return array;
+    }
+    public static void Main(string[] args)
+    {
+        int[] a = { 3, 4, 4, 6, 1, 4, 4 };
+        var result = MaxCounter(5, a);
+    }
+
+}
